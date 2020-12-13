@@ -24,6 +24,7 @@ const tripInfo = new TripInfoTemplate(testData);
 
 
 render(tripEventsContainer, createForm.getTemplate(), `afterbegin`);
+render(tripEventsContainer, createForm.getTemplate(), `afterbegin`);
 render(tripControlsElement, filters.getTemplate(), `afterbegin`);
 render(siteMainElement, tripInfo.getTemplate(), `afterbegin`);
 render(tripEventsContainer, sort.getTemplate(), `beforeend`);
