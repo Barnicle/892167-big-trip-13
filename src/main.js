@@ -1,9 +1,10 @@
-import {filtersTemplate} from "./view/filters";
-import {sortTemplate} from "./view/sort";
-import {tripInfoTemplate} from "./view/tripInfo";
-import {contentTemplate} from "./view/list";
+import {FiltersTemplate} from "./view/filters";
+import {SortTemplate} from "./view/sort";
+import {TripInfoTemplate} from "./view/tripInfo";
+import {ContentTemplate} from "./view/list";
 import {generateTripPointData} from "./mock/tripPoint";
-import {createFormTemplate} from "./view/createForm";
+import {CreateFormTemplate} from "./view/createForm";
+import Utils from 'utils';
 
 const testData = generateTripPointData(3);
 
@@ -14,10 +15,16 @@ const render = (element, template, position) => {
 const tripControlsElement = document.querySelector(`.trip-controls`);
 const siteMainElement = document.querySelector(`.trip-main`);
 const tripEventsContainer = document.querySelector(`.trip-events`);
-
+const sort = new SortTemplate();
+const filters = new FiltersTemplate();
+const content = new ContentTemplate(testData);
+ const createForm = new CreateFormTemplate(testData);
+const tripInfo = new TripInfoTemplate(testData);
 //  render templates
-render(tripEventsContainer, createFormTemplate(testData), `afterbegin`);
-render(tripControlsElement, filtersTemplate(), `afterbegin`);
-render(siteMainElement, tripInfoTemplate(testData), `afterbegin`);
-render(tripEventsContainer, sortTemplate(), `beforeend`);
-render(tripEventsContainer, contentTemplate(testData), `beforeend`);
+
+
+render(tripEventsContainer, createForm.getTemplate(), `afterbegin`);
+render(tripControlsElement, filters.getTemplate(), `afterbegin`);
+render(siteMainElement, tripInfo.getTemplate(), `afterbegin`);
+render(tripEventsContainer, sort.getTemplate(), `beforeend`);
+render(tripEventsContainer, content.getTemplate(), `beforeend`);

@@ -1,5 +1,6 @@
-export const filtersTemplate = () => {
-  return `<h2 class="visually-hidden">Switch trip view</h2>
+export class FiltersTemplate {
+  createFilterTemplate() {
+    return `<h2 class="visually-hidden">Switch trip view</h2>
             <nav class="trip-controls__trip-tabs  trip-tabs">
               <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
               <a class="trip-tabs__btn" href="#">Stats</a>
@@ -24,4 +25,8 @@ export const filtersTemplate = () => {
 
               <button class="visually-hidden" type="submit">Accept filter</button>
             </form>`;
-};
+  }
+  getTemplate() {
+    return this.createFilterTemplate();
+  }
+}

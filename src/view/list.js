@@ -1,7 +1,11 @@
-export const contentTemplate = (data) => {
-  return data.map((el) => {
-    const {destination, duration, type, price, date, offers} = el;
-    const list = `<li class="trip-events__item">
+export class ContentTemplate {
+  constructor(data) {
+    this.data = data;
+  }
+  createContentTemplate() {
+    return this.data.map((el) => {
+      const {destination, duration, type, price, date, offers} = el;
+      const list = `<li class="trip-events__item">
               <div class="event">
                 <time class="event__date" datetime="2019-03-18">MAR 18</time>
                 <div class="event__type">
@@ -39,7 +43,11 @@ export const contentTemplate = (data) => {
               </div>
             </li>`;
 
-    return `<ul class="trip-events__list">${list}</ul>`;
-  });
-};
+      return `<ul class="trip-events__list">${list}</ul>`;
+    });
+  }
+  getTemplate() {
+    return this.createContentTemplate();
+  }
+}
 

@@ -1,3 +1,5 @@
-export const editFormTemplate = () => {
-  return `editForm`;
-};
+export class EditFormTemplate {
+  getTemplate() {
+    return `editForm`;
+  }
+}
